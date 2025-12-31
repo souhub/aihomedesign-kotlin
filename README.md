@@ -1,7 +1,7 @@
 # AI Home Design API client for Kotlin
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.souhub.aihomedesign/aihomedesign-client?color=blue&label=Download)](https://central.sonatype.com/namespace/io.github.souhub.aihomedesign)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?logo=kotlin)](https://kotlinlang.org)
+[![Maven Central](https://img.shields.io/maven-central/v/org.souhub.aihomedesign/aihomedesign-client?color=blue&label=Download)](https://central.sonatype.com/namespace/org.souhub.aihomedesign)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-blue.svg?logo=kotlin)](https://kotlinlang.org)
 [![License](https://img.shields.io/github/license/souhub/aihomedesign-kotlin?color=yellow)](LICENSE)
 
 Kotlin client for [AI Home Design API](https://doc.aihomedesign.com/) with multiplatform and coroutines capabilities.
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation "org.souhub:aihomedesign-client:0.1.0"
+    implementation "org.souhub.aihomedesign:aihomedesign-client:0.1.0"
     runtimeOnly "io.ktor:ktor-client-okhttp:3.0.3" // choose an engine from https://ktor.io/docs/http-client-engines.html
 }
 ```
@@ -37,7 +37,7 @@ Gradle is required for multiplatform support, but there's nothing stopping you f
 ```xml
 <dependencies>
     <dependency>
-        <groupId>org.souhub</groupId>
+        <groupId>org.souhub.aihomedesign</groupId>
         <artifactId>aihomedesign-client-jvm</artifactId>
         <version>0.1.0</version>
     </dependency>
@@ -54,9 +54,6 @@ Gradle is required for multiplatform support, but there's nothing stopping you f
 </details>
 
 ## ⚡️ Getting Started
-
-> [!NOTE]
-> AI Home Design encourages using environment variables for the API key.
 
 Create an instance of `AIHomeDesign` client:
 
