@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation "org.souhub:aihomedesign-client:0.1.0-SNAPSHOT"
+    implementation "org.souhub:aihomedesign-client:0.1.0"
     runtimeOnly "io.ktor:ktor-client-okhttp:3.0.3" // choose an engine from https://ktor.io/docs/http-client-engines.html
 }
 ```
@@ -39,7 +39,7 @@ Gradle is required for multiplatform support, but there's nothing stopping you f
     <dependency>
         <groupId>org.souhub</groupId>
         <artifactId>aihomedesign-client-jvm</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
     </dependency>
 
     <dependency>
