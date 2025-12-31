@@ -16,7 +16,7 @@ import kotlin.time.Duration.Companion.seconds
 public class AIHomeDesignConfig(
     public val apiKey: String,
     public val logging: LoggingConfig = LoggingConfig(),
-    public val baseUrl: String = "https://api.aihomedesign.io/v1",
+    public val baseUrl: String = "https://api.aihomedesign.com/",
     public val timeout: Duration? = 30.seconds,
     public val engine: HttpClientEngine? = null,
 )

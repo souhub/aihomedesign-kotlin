@@ -4,9 +4,12 @@ package org.souhub.aihomedesign.client.internal
  * Object to handle API paths.
  */
 internal object ApiPath {
-    const val SPACES = "spaces"
-    const val IMAGES = "order/image"
-    const val ORDER = "order"
-    const val MANUAL_MASK = "order/manual-mask"
-    const val FINALIZE_ORDER = "order/done"
+    private const val VERSION = "v1"
+    private fun build(path: String) = "$VERSION/${path.removePrefix("/")}"
+
+    val SPACES = build("spaces")
+    val IMAGE_UPLOAD = build("order/image")
+    val ORDER = build("order")
+    val MANUAL_MASK = build("order/manual-mask")
+    val FINALIZE_ORDER = build("order/done")
 }

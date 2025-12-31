@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-public data class FinalizedOrder(
+public data class FinalizeOrderResponse(
     @SerialName("message")
     public val message: String
 )
