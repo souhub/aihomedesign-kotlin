@@ -1,22 +1,19 @@
 package org.souhub.aihomedesign.client.internal
 
-import org.souhub.aihomedesign.client.Images
 import org.souhub.aihomedesign.client.internal.http.AIHomeDesignRequester
 import org.souhub.aihomedesign.client.internal.http.perform
-import org.souhub.aihomedesign.client.models.ImageUpload
-import org.souhub.aihomedesign.client.models.ImageUploadRequest
+import org.souhub.aihomedesign.client.internal.models.ImageUploadResponse
+import org.souhub.aihomedesign.client.internal.models.ImageUploadRequest
 import io.ktor.client.request.forms.formData
 import io.ktor.client.request.forms.submitFormWithBinaryData
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
-import org.souhub.aihomedesign.client.models.ItemRemovalMaskUpload
-import org.souhub.aihomedesign.client.models.ItemRemovalUpload
-import org.souhub.aihomedesign.client.internal.models.ServiceType
+import org.souhub.aihomedesign.client.models.ServiceName
 
-internal class ImagesClient(
+internal class ImageUploader(
     private val requester: AIHomeDesignRequester
-) : Images {
+) {
     private fun defaultFilename(contentType: ContentType): String = when (contentType) {
         ContentType.parse("image/webp") -> "upload.webp"
         ContentType.Image.JPEG -> "upload.jpg"
@@ -26,10 +23,10 @@ internal class ImagesClient(
         else -> "upload.bin"
     }
 
-    private suspend fun uploadImage(request: ImageUploadRequest, serviceName: ServiceType): ImageUpload {
+    internal suspend fun uploadImage(request: ImageUploadRequest, serviceName: ServiceName): ImageUploadResponse {
         return requester.perform {
             it.submitFormWithBinaryData(
-                url = "order/image",
+                url = ApiPath.IMAGE_UPLOAD,
                 formData = formData {
 
                     append("image", request.image, Headers.build {
@@ -41,13 +38,5 @@ internal class ImagesClient(
                 }
             )
         }
-    }
-
-    override suspend fun uploadItemRemovalImage(request: ImageUploadRequest): ItemRemovalUpload {
-        return uploadImage(request, ServiceType.ItemRemoval) as ItemRemovalUpload
-    }
-
-    override suspend fun uploadItemRemovalMaskImage(request: ImageUploadRequest): ItemRemovalMaskUpload {
-        return uploadImage(request, ServiceType.ItemRemovalMask) as ItemRemovalMaskUpload
     }
 }

@@ -4,7 +4,13 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-public data class Space(
+public data class GetSpacesResponse(
+    @SerialName("data")
+    val data: List<GetSpaceResponseItem>
+)
+
+@Serializable
+public data class GetSpaceResponseItem(
     @SerialName("id")
     public val id: String,
 

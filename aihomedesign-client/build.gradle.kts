@@ -9,8 +9,10 @@ plugins {
 kotlin {
     explicitApi()
 
+    withSourcesJar()
+
     jvm()
-    jvmToolchain(21)
+    jvmToolchain(11)
 
     sourceSets {
         commonMain.dependencies {
